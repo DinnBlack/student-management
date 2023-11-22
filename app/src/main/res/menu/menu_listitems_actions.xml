@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/btEditAccount"
+        android:title="Edit Account" />
+
+    <item android:id="@+id/btDeleteAccount"
+        android:title="Delete Account" />
+
+</menu>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "442375333863",
+    "project_id": "student-management-tdtu",
+    "storage_bucket": "student-management-tdtu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442375333863:android:e48e5ca1609213214c7f42",
+        "android_client_info": {
+          "package_name": "com.example.studentmanagement"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApO_789zO_Hxps-0oEk7qitNHJeiRPMGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

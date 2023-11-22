@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.AddStudentActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ornamenta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ornaments"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbAddStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="8dp"
+        app:title="Add New Student"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ornamenta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbAddStudent"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="32dp"
+        app:cardCornerRadius="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbAddStudent"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/ivAddStudentAvatar"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:src="@drawable/women"
+            android:scaleType="centerCrop"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="match_parent"
+        android:layout_height="540dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_marginTop="16dp"
+                android:id="@+id/tvAddStudentName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Name"
+                android:layout_gravity="center"
+                android:textSize="16dp"
+                android:paddingHorizontal="16dp"
+                android:background="@drawable/background_btn_1"
+                android:fontFamily="@font/quicksandmedium"/>
+
+            <EditText
+                android:layout_marginTop="16dp"
+                android:id="@+id/tvAddStudentId"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="ID"
+                android:layout_gravity="center"
+                android:textSize="16dp"
+                android:paddingHorizontal="16dp"
+                android:background="@drawable/background_btn_1"
+                android:fontFamily="@font/quicksandmedium"/>
+
+            <EditText
+                android:layout_marginTop="16dp"
+                android:id="@+id/tvAddStudentClass"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Class"
+                android:layout_gravity="center"
+                android:textSize="16dp"
+                android:paddingHorizontal="16dp"
+                android:background="@drawable/background_btn_1"
+                android:fontFamily="@font/quicksandmedium"/>
+
+            <EditText
+                android:layout_marginTop="16dp"
+                android:id="@+id/tvAddStudentSchoolYear"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="School year"
+                android:layout_gravity="center"
+                android:textSize="16dp"
+                android:paddingHorizontal="16dp"
+                android:background="@drawable/background_btn_1"
+                android:fontFamily="@font/quicksandmedium"/>
+
+            <EditText
+                android:layout_marginTop="16dp"
+                android:id="@+id/tvAddStudentBirthday"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="BirthDay"
+                android:layout_gravity="center"
+                android:textSize="16dp"
+                android:paddingHorizontal="16dp"
+                android:background="@drawable/background_btn_1"
+                android:fontFamily="@font/quicksandmedium"/>
+
+            <EditText
+                android:layout_marginTop="16dp"
+                android:id="@+id/tvAddStudentGender"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Gender"
+                android:layout_gravity="center"
+                android:textSize="16dp"
+                android:paddingHorizontal="16dp"
+                android:background="@drawable/background_btn_1"
+                android:fontFamily="@font/quicksandmedium"/>
+
+            <EditText
+                android:layout_marginTop="16dp"
+                android:id="@+id/tvAddStudentFaculty"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Faculty"
+                android:layout_gravity="center"
+                android:textSize="16dp"
+                android:paddingHorizontal="16dp"
+                android:background="@drawable/background_btn_1"
+                android:fontFamily="@font/quicksandmedium"/>
+
+            <EditText
+                android:layout_marginTop="16dp"
+                android:id="@+id/tvAddStudentMajor"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:hint="Major"
+                android:layout_gravity="center"
+                android:textSize="16dp"
+                android:paddingHorizontal="16dp"
+                android:background="@drawable/background_btn_1"
+                android:fontFamily="@font/quicksandmedium"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btAddStudentAfterFill"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                app:cornerRadius="10dp"
+                android:layout_marginTop="16dp"
+                android:text="Add"
+                android:textSize="16dp"
+                android:fontFamily="@font/agbalumoregular"
+                app:backgroundTint="#4E74F9"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
