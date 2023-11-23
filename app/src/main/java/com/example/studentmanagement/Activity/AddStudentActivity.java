@@ -1,10 +1,12 @@
 package com.example.studentmanagement.Activity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,9 +72,30 @@ public class AddStudentActivity extends AppCompatActivity {
             }
         });
 
+        tvAddStudentBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDatePicker();
+            }
+        });
+
         btAddStudentAfterFill.setOnClickListener(v -> {
             uploadImageAndData();
         });
+    }
+
+    private void openDatePicker(){
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, R.style.DialogTheme , new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+
+                //Showing the picked value in the textView
+                tvAddStudentBirthday.setText(String.valueOf(day)+ "/"+String.valueOf(month)+ "/"+String.valueOf(year));
+
+            }
+        }, 2023, 01, 20);
+
+        datePickerDialog.show();
     }
 
     @Override
