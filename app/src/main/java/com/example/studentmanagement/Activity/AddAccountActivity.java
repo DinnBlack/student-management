@@ -3,14 +3,19 @@ package com.example.studentmanagement.Activity;
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -82,6 +87,22 @@ public class AddAccountActivity extends AppCompatActivity {
             }
         });
 
+        tvAddAccountBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDatePicker();
+            }
+        });
+
+        registerForContextMenu(tvAddAccountRole);
+
+        tvAddAccountRole.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopupMenu(v);
+            }
+        });
+
         btAddAccountAfterFill.setOnClickListener(v -> {
 
             String email = tvAddAccountEmail.getText().toString().trim();
@@ -150,6 +171,45 @@ public class AddAccountActivity extends AppCompatActivity {
         });
     }
 
+    private void openDatePicker(){
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, R.style.DialogTheme , new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+
+                //Showing the picked value in the textView
+                tvAddAccountBirthday.setText(String.valueOf(day)+ "/"+String.valueOf(month+1)+ "/"+String.valueOf(year));
+
+            }
+        }, 2023, 01, 20);
+
+        datePickerDialog.show();
+    }
+
+    private void showPopupMenu(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view, Gravity.BOTTOM);
+        popupMenu.getMenuInflater().inflate(R.menu.menu_role, popupMenu.getMenu());
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                handleMenuItemClick(item);
+                return true;
+            }
+        });
+
+        popupMenu.show();
+    }
+    private void handleMenuItemClick(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.itemAdmin) {
+            tvAddAccountRole.setText("Admin");
+        } else if (itemId == R.id.itemManager) {
+            tvAddAccountRole.setText("Manager");
+        } else if (itemId == R.id.itemEmployee) {
+            tvAddAccountRole.setText("Employee");
+        }
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @NonNull Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -195,7 +255,6 @@ public class AddAccountActivity extends AppCompatActivity {
                 .set(items)
                 .addOnCompleteListener(task -> {
                     Toast.makeText(AddAccountActivity.this, "Added Account Successfully", Toast.LENGTH_SHORT).show();
-                    finish();
                     finish();
                 });
     }

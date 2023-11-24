@@ -90,7 +90,7 @@ public class AddStudentActivity extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
 
                 //Showing the picked value in the textView
-                tvAddStudentBirthday.setText(String.valueOf(day)+ "/"+String.valueOf(month)+ "/"+String.valueOf(year));
+                tvAddStudentBirthday.setText(String.valueOf(day)+ "/"+String.valueOf(month+1)+ "/"+String.valueOf(year));
 
             }
         }, 2023, 01, 20);

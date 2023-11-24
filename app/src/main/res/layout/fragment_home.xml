@@ -45,16 +45,32 @@
                 android:orientation="vertical"
                 android:background="@drawable/card_background">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hello,"
-                    android:textSize="24dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:fontFamily="@font/pacificoregular"
-                    android:textColor="#ffffff"
-                    />
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hello, "
+                        android:textSize="32dp"
+                        android:layout_marginLeft="16dp"
+                        android:fontFamily="@font/pacificoregular"
+                        android:textColor="#ffffff" />
+
+                    <TextView
+                        android:id="@+id/tvCurrentAccountName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text=""
+                        android:textSize="24dp"
+                        android:fontFamily="@font/quicksandbold"
+                        android:textColor="#ffffff" />
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"

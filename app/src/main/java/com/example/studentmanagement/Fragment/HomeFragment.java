@@ -1,18 +1,32 @@
 package com.example.studentmanagement.Fragment;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.studentmanagement.Activity.ListAccountsActivity;
 import com.example.studentmanagement.Activity.ListStudentsActivity;
 import com.example.studentmanagement.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +44,7 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     LinearLayout btListStudents, btListAccounts;
+    private TextView tvCurrentAccountName;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -85,6 +100,33 @@ public class HomeFragment extends Fragment {
                 startActivity(myIntent);
             }
         });
+
+        tvCurrentAccountName = view.findViewById(R.id.tvCurrentAccountName);
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser != null) {
+            String userEmail = currentUser.getEmail();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            CollectionReference accountsRef = db.collection("Accounts");
+
+            Query query = accountsRef.whereEqualTo("email", userEmail);
+
+            query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            tvCurrentAccountName.setText(document.getString("name"));
+                        }
+                    } else {
+                        Log.d(TAG, "Error getting documents: ", task.getException());
+                    }
+                }
+            });
+        }
+
         return view;
     }
 }

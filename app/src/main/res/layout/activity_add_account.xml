@@ -135,15 +135,17 @@
                 android:background="@drawable/background_btn_1"
                 android:fontFamily="@font/quicksandmedium"/>
 
-            <EditText
+            <TextView
                 android:layout_marginTop="16dp"
                 android:id="@+id/tvAddAccountBirthday"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:hint="Birthday"
+                android:gravity="center_vertical"
                 android:layout_gravity="center"
                 android:textSize="16dp"
                 android:paddingHorizontal="16dp"
+                android:drawableRight="@drawable/round_calendar_month_24"
                 android:background="@drawable/background_btn_1"
                 android:fontFamily="@font/quicksandmedium"/>
 
@@ -159,17 +161,19 @@
                 android:background="@drawable/background_btn_1"
                 android:fontFamily="@font/quicksandmedium"/>
 
-            <EditText
+            <TextView
+                android:layout_marginTop="16dp"
                 android:id="@+id/tvAddAccountRole"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/background_btn_1"
-                android:fontFamily="@font/quicksandmedium"
                 android:hint="Role"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:textSize="16dp"
+                android:drawableEnd="@drawable/round_expand_more_24"
                 android:paddingHorizontal="16dp"
-                android:textSize="16dp" />
+                android:background="@drawable/background_btn_1"
+                android:fontFamily="@font/quicksandmedium"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btAddAccountAfterFill"

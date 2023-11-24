@@ -4,9 +4,11 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +25,8 @@ public class LoginActivity extends AppCompatActivity {
     Button btLogin;
     EditText etEmailLogin, etPasswordLogin;
     FirebaseAuth mAuth;
+    private ImageView ivPasswordVisibility;
+    private boolean isPasswordVisible = false;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -33,12 +37,35 @@ public class LoginActivity extends AppCompatActivity {
         etPasswordLogin = findViewById(R.id.etPasswordLogin);
         btLogin = findViewById(R.id.btLogin);
         mAuth = FirebaseAuth.getInstance();
+
+        ivPasswordVisibility = findViewById(R.id.ivPasswordVisibility);
+        ivPasswordVisibility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                togglePasswordVisibility();
+            }
+        });
+
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 login();
             }
         });
+    }
+
+    private void togglePasswordVisibility() {
+        isPasswordVisible = !isPasswordVisible;
+
+        if (isPasswordVisible) {
+            // Show password
+            etPasswordLogin.setTransformationMethod(null);
+            ivPasswordVisibility.setImageResource(R.drawable.round_visibility_24);
+        } else {
+            // Hide password
+            etPasswordLogin.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            ivPasswordVisibility.setImageResource(R.drawable.round_visibility_off_24);
+        }
     }
 
     private void login() {

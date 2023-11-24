@@ -64,6 +64,8 @@
 
     </androidx.cardview.widget.CardView>
 
+
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="match_parent"
@@ -131,10 +133,11 @@
                 android:background="@drawable/background_btn_1"
                 android:fontFamily="@font/quicksandmedium"/>
 
-            <EditText
+            <TextView
                 android:layout_marginTop="16dp"
                 android:id="@+id/tvAddStudentBirthday"
                 android:layout_width="match_parent"
+                android:gravity="center_vertical"
                 android:layout_height="40dp"
                 android:hint="BirthDay"
                 android:layout_gravity="center"
