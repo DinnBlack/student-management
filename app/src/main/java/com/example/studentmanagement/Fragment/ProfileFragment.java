@@ -1,24 +1,38 @@
 package com.example.studentmanagement.Fragment;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.example.studentmanagement.Activity.EditMyProfileActivity;
 import com.example.studentmanagement.Activity.LoginActivity;
 import com.example.studentmanagement.Activity.LoginHistoryMyProfileActivity;
 import com.example.studentmanagement.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,6 +50,9 @@ public class ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private Toolbar tbMyProfile;
+    private ImageView ivMyProfileAvatar;
+    private TextView tvMyProfileName, tvMyProfileRole, tvMyProfileEmail, tvMyProfilePassword, tvMyProfileBirthday, tvMyProfilePhoneNumber, tvMyProfileStatus;
+
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -76,6 +93,47 @@ public class ProfileFragment extends Fragment {
         tbMyProfile = view.findViewById(R.id.tbMyProfile);
         ((AppCompatActivity) getActivity()).setSupportActionBar(tbMyProfile);
         setHasOptionsMenu(true);
+
+        ivMyProfileAvatar = view.findViewById(R.id.ivMyProfileAvatar);
+        tvMyProfileName = view.findViewById(R.id.tvMyProfileName);
+        tvMyProfileRole = view.findViewById(R.id.tvMyProfileRole);
+        tvMyProfileEmail = view.findViewById(R.id.tvMyProfileEmail);
+        tvMyProfilePassword = view.findViewById(R.id.tvMyProfilePassword);
+        tvMyProfileBirthday = view.findViewById(R.id.tvMyProfileBirthday);
+        tvMyProfilePhoneNumber = view.findViewById(R.id.tvMyProfilePhoneNumber);
+        tvMyProfileStatus = view.findViewById(R.id.tvMyProfileStatus);
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser != null) {
+            String userEmail = currentUser.getEmail();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            CollectionReference accountsRef = db.collection("Accounts");
+
+            Query query = accountsRef.whereEqualTo("email", userEmail);
+
+            query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Glide.with(requireContext()).load(document.getString("img")).into(ivMyProfileAvatar);
+                            tvMyProfileName.setText(document.getString("name"));
+                            tvMyProfileRole.setText(document.getString("role"));
+                            tvMyProfileEmail.setText(document.getString("email"));
+                            tvMyProfilePassword.setText(document.getString("password"));
+                            tvMyProfileBirthday.setText(document.getString("birthday"));
+                            tvMyProfilePhoneNumber.setText(document.getString("phoneNumber"));
+                            tvMyProfileStatus.setText(document.getString("status"));
+                        }
+                    } else {
+                        Log.d(TAG, "Error getting documents: ", task.getException());
+                    }
+                }
+            });
+        }
+
         return view;
     }
 

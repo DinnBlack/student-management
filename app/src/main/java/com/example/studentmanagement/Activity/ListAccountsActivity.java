@@ -1,8 +1,10 @@
 package com.example.studentmanagement.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +31,7 @@ public class ListAccountsActivity extends AppCompatActivity {
     AccountAdapter accountAdapter;
     List<AccountModel> accountModelList;
     FirebaseFirestore dbAccountList;
+    ImageView btAddAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,15 @@ public class ListAccountsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+            }
+        });
+
+        btAddAccount = findViewById(R.id.btAddAccount);
+        btAddAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(ListAccountsActivity.this, AddAccountActivity.class);
+                startActivity(myIntent);
             }
         });
 

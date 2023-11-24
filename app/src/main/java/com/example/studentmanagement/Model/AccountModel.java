@@ -5,20 +5,26 @@ import java.io.Serializable;
 public class AccountModel implements Serializable {
     private String img;
     private String name;
-    private String age;
+    private String role;
+    private String birthday;
     private String phoneNumber;
     private String status;
+    private String email;
+    private String password;
 
     public AccountModel() {
         // Default constructor is needed for Firestore to deserialize objects
     }
 
-    public AccountModel(String img, String name, String age, String phoneNumber, String status) {
+    public AccountModel(String img, String name, String role, String birthday, String phoneNumber, String status, String email, String password) {
         this.img = img;
         this.name = name;
-        this.age = age;
+        this.role = role;
+        this.birthday = birthday;
         this.phoneNumber = phoneNumber;
         this.status = status;
+        this.email = email;
+        this.password = password;
     }
 
 
@@ -38,14 +44,6 @@ public class AccountModel implements Serializable {
         this.name = name;
     }
 
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -60,5 +58,37 @@ public class AccountModel implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

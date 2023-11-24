@@ -98,6 +98,39 @@
             android:paddingHorizontal="16dp"
             android:orientation="vertical">
 
+            <ImageView
+                android:layout_marginTop="16dp"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/round_remove_24"
+                android:layout_gravity="center|top"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/agbalumoregular"
+                android:text="Detailed Account"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/quicksandbold"
+                android:text="Email and Password"
+                android:textSize="16dp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#E9E9F1" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -105,19 +138,21 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/quicksandmedium"
-                    android:text="Age: "
-                    android:textSize="18dp"
+                    android:text="Email: "
+                    android:layout_weight="2"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvDetailedAccountAge"
+                    android:id="@+id/tvDetailedAccountEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="20"
+                    android:text="admin@gmail.com"
                     android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:textSize="16dp"
                     android:fontFamily="@font/quicksandmedium"/>
 
@@ -137,18 +172,67 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Phone number: "
-                    android:textSize="18dp"
+                    android:text="Password: "
+                    android:layout_weight="2"
+                    android:textSize="16dp"
                     android:textStyle="bold"
                     android:fontFamily="@font/quicksandmedium"/>
 
                 <TextView
-                    android:id="@+id/tvDetailedAccountPhoneNumber"
+                    android:id="@+id/tvDetailedAccountPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="0979430024"
+                    android:text="123456"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/quicksandmedium"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#E9E9F1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/quicksandbold"
+                android:text="User Information"
+                android:textSize="16dp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#E9E9F1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Birthday: "
+                    android:layout_weight="2"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/quicksandmedium"/>
+
+                <TextView
+                    android:id="@+id/tvDetailedAccountBirthday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="18/03/2003"
                     android:textSize="16dp"
                     android:layout_gravity="center"
                     android:fontFamily="@font/quicksandmedium"/>
@@ -168,10 +252,44 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Phone: "
+                    android:layout_weight="2"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/quicksandmedium"/>
+
+                <TextView
+                    android:id="@+id/tvDetailedAccountPhoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0123456789"
+                    android:layout_weight="1"
+                    android:textSize="16dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/quicksandmedium"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="#E9E9F1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Status: "
-                    android:textSize="18dp"
+                    android:textSize="16dp"
+                    android:layout_weight="2"
                     android:textStyle="bold"
                     android:fontFamily="@font/quicksandmedium"/>
 
@@ -181,6 +299,7 @@
                     android:layout_height="wrap_content"
                     android:text="Nomal"
                     android:textSize="16dp"
+                    android:layout_weight="1"
                     android:layout_gravity="center"
                     android:fontFamily="@font/quicksandmedium"/>
 

@@ -48,6 +48,9 @@
             android:name=".Activity.DetailedStudentActivity"
             android:exported="false" />
         <activity
+            android:name=".Activity.DetailedAccountActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.ListStudentsActivity"
             android:exported="true" />
         <activity

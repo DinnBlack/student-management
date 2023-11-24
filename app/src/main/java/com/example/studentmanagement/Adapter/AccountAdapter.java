@@ -30,13 +30,13 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView ivAccountAvatar;
-        TextView tvAccountName, tvAccountAge, tvAccountPhoneNumber, tvAccountStatus;
+        TextView tvAccountName, tvAccountBirthday, tvAccountRole, tvAccountStatus;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivAccountAvatar = itemView.findViewById(R.id.ivAccountAvatar);
             tvAccountName = itemView.findViewById(R.id.tvAccountName);
-            tvAccountAge = itemView.findViewById(R.id.tvAccountAge);
-            tvAccountPhoneNumber = itemView.findViewById(R.id.tvAccountPhoneNumber);
+            tvAccountBirthday = itemView.findViewById(R.id.tvAccountBirthday);
+            tvAccountRole = itemView.findViewById(R.id.tvAccountRole);
             tvAccountStatus = itemView.findViewById(R.id.tvAccountStatus);
         }
     }
@@ -51,8 +51,8 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.ViewHold
     public void onBindViewHolder(@NonNull AccountAdapter.ViewHolder holder, int position) {
         Glide.with(context).load(list.get(position).getImg()).into(holder.ivAccountAvatar);
         holder.tvAccountName.setText(list.get(position).getName());
-        holder.tvAccountAge.setText(list.get(position).getAge());
-        holder.tvAccountPhoneNumber.setText(list.get(position).getPhoneNumber());
+        holder.tvAccountBirthday.setText(list.get(position).getBirthday());
+        holder.tvAccountRole.setText(list.get(position).getRole());
         holder.tvAccountStatus.setText(list.get(position).getStatus());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
