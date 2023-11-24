@@ -6,7 +6,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,8 +53,6 @@ public class DetailedStudentActivity extends AppCompatActivity {
         tvDetailedGender = findViewById(R.id.tvDetailedStudentGender);
         tvDetailedFaculty = findViewById(R.id.tvDetailedStudentFaculty);
         tvDetailedMajor = findViewById(R.id.tvDetailedStudentMajor);
-        ImageView btEditDetailedStudent = findViewById(R.id.btEditDetailedStudent);
-        ImageView btDeleteDetailedStudent = findViewById(R.id.btDeleteDetailedStudent);
 
         dbDetailedStudent = FirebaseFirestore.getInstance();
 
@@ -71,24 +71,30 @@ public class DetailedStudentActivity extends AppCompatActivity {
             tvDetailedFaculty.setText(studentModel.getFaculty());
             tvDetailedMajor.setText(studentModel.getMajor());
         }
-
-        btEditDetailedStudent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(DetailedStudentActivity.this, EditDetailedStudentActivity.class);
-                myIntent.putExtra("StudentModel", studentModel);
-                startActivity(myIntent);
-            }
-        });
-
-        btDeleteDetailedStudent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDeleteConfirmationDialog();
-            }
-        });
     }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_detailed_student, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            finish();
+            return true;
+        }
+        if (itemId == R.id.itemEditDetailedStudent) {
+            Intent myIntent = new Intent(DetailedStudentActivity.this, EditDetailedStudentActivity.class);
+            myIntent.putExtra("StudentModel", studentModel);
+            startActivity(myIntent);
+        }
+        if (itemId == R.id.itemDeleteStudent) {
+            showDeleteConfirmationDialog();
+        }
+        return super.onOptionsItemSelected(item);
+    }
     private void showDeleteConfirmationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete Student");
@@ -131,15 +137,4 @@ public class DetailedStudentActivity extends AppCompatActivity {
         }
     }
 
-
-    @Override
-    public boolean onOptionsItemSelected(android.view.MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 }

@@ -13,27 +13,11 @@
         android:background="#ffffff"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:title="Student details"
+        app:title="Account details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
-
-        <ImageView
-            android:id="@+id/btDeleteDetailedAccount"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/round_delete_24"
-            android:layout_gravity="right"
-            android:layout_marginRight="16dp"/>
-
-        <ImageView
-            android:id="@+id/btEditDetailedAccount"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/round_edit_24"
-            android:layout_gravity="right"
-            android:layout_marginRight="16dp"/>
 
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -201,22 +185,6 @@
                     android:fontFamily="@font/quicksandmedium"/>
 
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="#E9E9F1" />
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                app:cornerRadius="10dp"
-                android:textSize="16dp"
-                android:fontFamily="@font/agbalumoregular"
-                android:layout_marginTop="16dp"
-                android:text="View login history"
-                app:backgroundTint="#4E74F9"/>
 
         </LinearLayout>
 

@@ -1,14 +1,24 @@
 package com.example.studentmanagement.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+
+import com.example.studentmanagement.Activity.EditMyProfileActivity;
+import com.example.studentmanagement.Activity.LoginActivity;
+import com.example.studentmanagement.Activity.LoginHistoryMyProfileActivity;
 import com.example.studentmanagement.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +35,7 @@ public class ProfileFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Toolbar tbMyProfile;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -61,6 +72,38 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        tbMyProfile = view.findViewById(R.id.tbMyProfile);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(tbMyProfile);
+        setHasOptionsMenu(true);
+        return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_my_profile, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.itemEditMyProfile) {
+            Intent myIntent = new Intent(getContext(), EditMyProfileActivity.class);
+            startActivity(myIntent);
+            return true;
+        }
+        if (itemId == R.id.itemSeeLoginHistoryMyProfile) {
+            Intent myIntent = new Intent(getContext(), LoginHistoryMyProfileActivity.class);
+            startActivity(myIntent);
+            return true;
+        }
+        if (itemId == R.id.itemLogoutMyProfile) {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            startActivity(intent);
+            getActivity().finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

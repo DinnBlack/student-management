@@ -19,22 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
 
-        <ImageView
-            android:id="@+id/btDeleteDetailedStudent"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/round_delete_24"
-            android:layout_gravity="right"
-            android:layout_marginRight="16dp"/>
-
-        <ImageView
-            android:id="@+id/btEditDetailedStudent"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/round_edit_24"
-            android:layout_gravity="right"
-            android:layout_marginRight="16dp"/>
-
     </com.google.android.material.appbar.MaterialToolbar>
 
     <ImageView

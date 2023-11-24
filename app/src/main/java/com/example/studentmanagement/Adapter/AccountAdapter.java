@@ -29,7 +29,7 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        ImageView ivAccountAvatar, btMoreActions;
+        ImageView ivAccountAvatar;
         TextView tvAccountName, tvAccountAge, tvAccountPhoneNumber, tvAccountStatus;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -39,10 +39,7 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.ViewHold
             tvAccountPhoneNumber = itemView.findViewById(R.id.tvAccountPhoneNumber);
             tvAccountStatus = itemView.findViewById(R.id.tvAccountStatus);
         }
-
     }
-
-
 
     @NonNull
     @Override

@@ -11,12 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tbMyProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="My Profile" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ornamenta"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbMyProfile"
             tools:ignore="MissingConstraints" />
 
         <ImageView
@@ -31,11 +43,11 @@
             android:id="@+id/cardView2"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="32dp"
             app:cardCornerRadius="90dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbMyProfile"
             tools:ignore="MissingConstraints">
 
             <ImageView
@@ -189,37 +201,6 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="16dp"
                     android:background="#E9E9F1" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="152dp">
-
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="match_parent"
-                        android:layout_height="54dp"
-                        android:layout_weight="1"
-                        android:layout_marginRight="8dp"
-                        android:fontFamily="@font/agbalumoregular"
-                        android:text="Edit Profile"
-                        android:textSize="16dp"
-                        app:backgroundTint="#4E74F9"
-                        app:cornerRadius="10dp" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="match_parent"
-                        android:layout_height="54dp"
-                        android:layout_marginLeft="8dp"
-                        android:fontFamily="@font/agbalumoregular"
-                        android:layout_weight="1"
-                        android:text="login history"
-                        android:textSize="16dp"
-                        app:backgroundTint="#4E74F9"
-                        app:cornerRadius="10dp" />
-
-                </LinearLayout>
-
 
 
             </LinearLayout>
