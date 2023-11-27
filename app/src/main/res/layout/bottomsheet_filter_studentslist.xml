@@ -52,6 +52,7 @@
         android:layout_marginTop="16dp"/>
 
     <EditText
+        android:id="@+id/inputName"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:paddingHorizontal="16dp"
@@ -69,6 +70,7 @@
         android:layout_marginTop="16dp"/>
 
     <EditText
+        android:id="@+id/inputID"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:paddingHorizontal="16dp"
@@ -86,6 +88,7 @@
         android:layout_marginTop="16dp"/>
 
     <EditText
+        android:id="@+id/inputClass"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:paddingHorizontal="16dp"
@@ -103,6 +106,7 @@
         android:layout_marginTop="16dp"/>
 
     <EditText
+        android:id="@+id/inputYear"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:paddingHorizontal="16dp"
@@ -112,7 +116,7 @@
         android:layout_marginTop="8dp"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btLogin"
+        android:id="@+id/btnSearch"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
